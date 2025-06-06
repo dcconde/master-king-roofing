@@ -51,7 +51,7 @@ const Header = () => {
               duration={500}
               className="logo-link"
             >
-              <img src={logo} className="logo" alt="mkr-logo" />
+              <img src={logo} alt="mkr-logo" />
             </Link>
           </div>
 

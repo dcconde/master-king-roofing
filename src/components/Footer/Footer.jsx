@@ -1,4 +1,5 @@
 import { Link } from "react-scroll";
+import logo from "../../assets/logo/logo-gold.svg";
 import "./Footer.scss";
 
 const Footer = () => {
@@ -17,7 +18,7 @@ const Footer = () => {
               className="logo-link"
             >
               <span className="logo-text">
-                Master King <span>Roofing</span>
+                <img src={logo} alt="mkr-logo" />
               </span>
             </Link>
             <p>
