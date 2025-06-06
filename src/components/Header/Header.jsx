@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-scroll';
-import './Header.scss';
+import { useState, useEffect } from "react";
+import { Link } from "react-scroll";
+import logo from "../../assets/logo/logo-gold.svg";
+import "./Header.scss";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,10 +16,10 @@ const Header = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -31,31 +32,30 @@ const Header = () => {
   };
 
   const navLinks = [
-    { id: 'home', name: 'Home' },
-    { id: 'about', name: 'About Us' },
-    { id: 'services', name: 'Services' },
-    { id: 'gallery', name: 'Gallery' },
-    { id: 'quote', name: 'Get a Quote' }
+    { id: "home", name: "Home" },
+    { id: "about", name: "About Us" },
+    { id: "services", name: "Services" },
+    { id: "gallery", name: "Gallery" },
+    { id: "quote", name: "Get a Quote" },
   ];
 
   return (
-    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+    <header className={`header ${scrolled ? "scrolled" : ""}`}>
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            {/* Logo placeholder - will be replaced with actual logo file */}
-            <Link 
-              to="home" 
-              spy={true} 
-              smooth={true} 
+            <Link
+              to="home"
+              spy={true}
+              smooth={true}
               duration={500}
               className="logo-link"
             >
-              <span className="logo-text">Master King <span>Roofing</span></span>
+              <img src={logo} className="logo" alt="mkr-logo" />
             </Link>
           </div>
-          
-          <div className={`nav-container ${menuOpen ? 'active' : ''}`}>
+
+          <div className={`nav-container ${menuOpen ? "active" : ""}`}>
             <nav className="nav">
               <ul className="nav-list">
                 {navLinks.map((link) => (
@@ -75,7 +75,7 @@ const Header = () => {
                 ))}
               </ul>
             </nav>
-            
+
             <Link
               to="quote"
               spy={true}
@@ -88,9 +88,9 @@ const Header = () => {
               Free Quote
             </Link>
           </div>
-          
-          <button 
-            className={`hamburger ${menuOpen ? 'active' : ''}`} 
+
+          <button
+            className={`hamburger ${menuOpen ? "active" : ""}`}
             onClick={toggleMenu}
             aria-label="Menu"
           >
