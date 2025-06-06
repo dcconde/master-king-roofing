@@ -1,0 +1,143 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.about {
+  background-color: $white;
+  
+  .about-content {
+    @include grid(1fr);
+    
+    @include responsive(lg) {
+      @include grid(1fr 1fr, $spacing-8);
+      align-items: center;
+    }
+  }
+  
+  .about-image {
+    margin-bottom: $spacing-6;
+    
+    @include responsive(lg) {
+      margin-bottom: 0;
+    }
+    
+    .image-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: $border-radius-lg;
+      box-shadow: $shadow-lg;
+      
+      &:before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        width: 100px;
+        height: 100px;
+        background-color: $primary-gold;
+        z-index: -1;
+        border-radius: $border-radius-md;
+      }
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -30px;
+        right: -30px;
+        width: 150px;
+        height: 150px;
+        border: 5px solid $primary-gold;
+        z-index: -1;
+        border-radius: $border-radius-md;
+      }
+      
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1);
+        transition: transform $transition-slow $transition-ease;
+        
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+  
+  .about-text {
+    h3 {
+      margin-bottom: $spacing-4;
+    }
+    
+    p {
+      margin-bottom: $spacing-4;
+    }
+  }
+  
+  .values {
+    margin-top: $spacing-6;
+    margin-bottom: $spacing-6;
+  }
+  
+  .value-item {
+    display: flex;
+    margin-bottom: $spacing-4;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    .value-icon {
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      background-color: $gold-light;
+      border-radius: 50%;
+      @include flex-center;
+      margin-right: $spacing-4;
+      color: $primary-gold;
+      
+      i {
+        font-size: $font-size-xl;
+      }
+      
+      // Placeholder styles for icons (to be replaced with actual icons)
+      .icon-quality:before {
+        content: "★";
+      }
+      
+      .icon-integrity:before {
+        content: "✓";
+      }
+      
+      .icon-reliability:before {
+        content: "⏱";
+      }
+    }
+    
+    .value-text {
+      h4 {
+        font-size: $font-size-lg;
+        margin-bottom: $spacing-1;
+      }
+      
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  .about-cta {
+    background-color: $light-gray;
+    padding: $spacing-5;
+    border-radius: $border-radius-lg;
+    text-align: center;
+    
+    .about-cta-text {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-medium;
+      margin-bottom: $spacing-4;
+    }
+  }
+}

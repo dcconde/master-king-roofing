@@ -1,0 +1,209 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.footer {
+  background-color: $primary-black;
+  color: $white;
+  padding-top: $spacing-10;
+  
+  .container {
+    max-width: 1400px;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-6;
+    padding-bottom: $spacing-8;
+    border-bottom: 1px solid rgba($white, 0.1);
+    
+    @include responsive(md) {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+  
+  .footer-logo {
+    .logo-link {
+      display: inline-block;
+      margin-bottom: $spacing-3;
+    }
+    
+    .logo-text {
+      font-family: $font-heading;
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      color: $white;
+      
+      span {
+        color: $primary-gold;
+      }
+    }
+    
+    p {
+      color: $medium-gray;
+      margin-bottom: $spacing-4;
+    }
+    
+    .social-links {
+      display: flex;
+      
+      a {
+        width: 40px;
+        height: 40px;
+        background-color: rgba($white, 0.1);
+        border-radius: 50%;
+        @include flex-center;
+        margin-right: $spacing-3;
+        transition: all $transition-normal $transition-ease;
+        
+        &:hover {
+          background-color: $primary-gold;
+          color: $primary-black;
+          transform: translateY(-3px);
+        }
+      }
+      
+      // Placeholder styles for icons (to be replaced with actual icons)
+      .icon-facebook:before {
+        content: "f";
+      }
+      
+      .icon-instagram:before {
+        content: "i";
+      }
+      
+      .icon-twitter:before {
+        content: "t";
+      }
+      
+      .icon-linkedin:before {
+        content: "in";
+      }
+    }
+  }
+  
+  .footer-links {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-6;
+    
+    @include responsive(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include responsive(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    h4 {
+      color: $white;
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-4;
+      position: relative;
+      padding-bottom: $spacing-2;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background-color: $primary-gold;
+      }
+    }
+    
+    ul {
+      li {
+        margin-bottom: $spacing-3;
+        
+        a, span {
+          color: $medium-gray;
+          transition: color $transition-normal $transition-ease;
+          
+          &:hover {
+            color: $primary-gold;
+          }
+        }
+      }
+    }
+    
+    .contact-info {
+      li {
+        display: flex;
+        align-items: flex-start;
+        
+        i {
+          margin-right: $spacing-3;
+          color: $primary-gold;
+          margin-top: 3px;
+        }
+      }
+      
+      // Placeholder styles for icons (to be replaced with actual icons)
+      .icon-phone:before {
+        content: "📱";
+      }
+      
+      .icon-email:before {
+        content: "✉";
+      }
+      
+      .icon-location:before {
+        content: "📍";
+      }
+      
+      .icon-time:before {
+        content: "⏰";
+      }
+    }
+  }
+  
+  .footer-bottom {
+    padding: $spacing-4 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    @include responsive(md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
+    p {
+      color: $medium-gray;
+      margin-bottom: $spacing-3;
+      
+      @include responsive(md) {
+        margin-bottom: 0;
+      }
+    }
+    
+    .footer-bottom-links {
+      a {
+        color: $medium-gray;
+        margin-left: $spacing-3;
+        position: relative;
+        
+        &:first-child {
+          margin-left: 0;
+        }
+        
+        &:after {
+          content: '|';
+          position: absolute;
+          right: -$spacing-2;
+          color: rgba($medium-gray, 0.5);
+        }
+        
+        &:last-child:after {
+          display: none;
+        }
+        
+        &:hover {
+          color: $primary-gold;
+        }
+      }
+    }
+  }
+}

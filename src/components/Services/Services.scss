@@ -1,0 +1,160 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.services {
+  background-color: $light-gray;
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-6;
+    
+    @include responsive(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include responsive(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .service-card {
+    @include card;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    .service-image {
+      height: 200px;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform $transition-normal $transition-ease;
+      }
+    }
+    
+    &:hover {
+      .service-image img {
+        transform: scale(1.1);
+      }
+    }
+    
+    .service-content {
+      padding: $spacing-5;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      
+      h3 {
+        margin-top: $spacing-4;
+        margin-bottom: $spacing-3;
+        font-size: $font-size-lg;
+      }
+      
+      p {
+        margin-bottom: $spacing-4;
+        flex-grow: 1;
+      }
+    }
+    
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background-color: $primary-gold;
+      border-radius: 50%;
+      @include flex-center;
+      margin-top: -50px;
+      box-shadow: $shadow-md;
+      color: $primary-black;
+      
+      i {
+        font-size: $font-size-xl;
+      }
+      
+      // Placeholder styles for icons (to be replaced with actual icons)
+      .icon-installation:before {
+        content: "🏠";
+      }
+      
+      .icon-repair:before {
+        content: "🔧";
+      }
+      
+      .icon-replacement:before {
+        content: "🔄";
+      }
+      
+      .icon-inspection:before {
+        content: "🔍";
+      }
+      
+      .icon-gutter:before {
+        content: "💧";
+      }
+      
+      .icon-emergency:before {
+        content: "🚨";
+      }
+    }
+    
+    .service-link {
+      color: $primary-gold;
+      font-weight: $font-weight-medium;
+      display: inline-flex;
+      align-items: center;
+      
+      &:after {
+        content: '→';
+        margin-left: $spacing-2;
+        transition: transform $transition-normal $transition-ease;
+      }
+      
+      &:hover {
+        &:after {
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+  
+  .services-cta {
+    margin-top: $spacing-10;
+    background-color: $primary-black;
+    color: $white;
+    border-radius: $border-radius-lg;
+    position: relative;
+    overflow: hidden;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.pexels.com/photos/6519540/pexels-photo-6519540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
+      opacity: 0.2;
+    }
+    
+    .services-cta-content {
+      position: relative;
+      z-index: 1;
+      padding: $spacing-8;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      
+      h3 {
+        color: $white;
+        margin-bottom: $spacing-3;
+      }
+      
+      p {
+        margin-bottom: $spacing-5;
+      }
+    }
+  }
+}

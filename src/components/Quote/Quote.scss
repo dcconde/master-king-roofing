@@ -1,0 +1,206 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.quote {
+  background-color: $light-gray;
+  
+  .quote-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-6;
+    background-color: $white;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-lg;
+    
+    @include responsive(lg) {
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+  }
+  
+  .quote-image {
+    position: relative;
+    min-height: 300px;
+    background: url('https://images.pexels.com/photos/4394367/pexels-photo-4394367.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba($primary-black, 0.9), rgba($primary-black, 0.7));
+    }
+    
+    @include responsive(lg) {
+      min-height: auto;
+    }
+    
+    .quote-content {
+      position: relative;
+      z-index: 1;
+      padding: $spacing-6;
+      color: $white;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      
+      @include responsive(lg) {
+        padding: $spacing-8;
+      }
+      
+      h2 {
+        color: $white;
+        
+        &:after {
+          background-color: $primary-gold;
+        }
+      }
+      
+      p {
+        margin-bottom: $spacing-6;
+        color: $medium-gray;
+      }
+    }
+  }
+  
+  .quote-info {
+    margin-top: auto;
+    
+    .info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: $spacing-4;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      i {
+        width: 40px;
+        height: 40px;
+        background-color: rgba($primary-gold, 0.2);
+        border-radius: 50%;
+        @include flex-center;
+        margin-right: $spacing-3;
+        color: $primary-gold;
+        font-size: $font-size-lg;
+      }
+      
+      // Placeholder styles for icons (to be replaced with actual icons)
+      .icon-phone:before {
+        content: "📱";
+      }
+      
+      .icon-email:before {
+        content: "✉";
+      }
+      
+      .icon-location:before {
+        content: "📍";
+      }
+      
+      h4 {
+        color: $primary-gold;
+        margin-bottom: $spacing-1;
+        font-size: $font-size-base;
+      }
+      
+      p {
+        margin-bottom: 0;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+  
+  .quote-form {
+    padding: $spacing-6;
+    
+    @include responsive(lg) {
+      padding: $spacing-8;
+    }
+    
+    h3 {
+      margin-bottom: $spacing-5;
+      position: relative;
+      display: inline-block;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background-color: $primary-gold;
+      }
+    }
+    
+    .form-success {
+      background-color: rgba($success-green, 0.1);
+      border-left: 4px solid $success-green;
+      padding: $spacing-4;
+      margin-bottom: $spacing-5;
+      border-radius: $border-radius-sm;
+      
+      p {
+        margin: 0;
+        color: darken($success-green, 10%);
+      }
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: $spacing-4;
+      
+      @include responsive(md) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .form-group {
+      margin-bottom: $spacing-4;
+      
+      label {
+        display: block;
+        margin-bottom: $spacing-2;
+        font-weight: $font-weight-medium;
+        color: $primary-black;
+      }
+      
+      input, select, textarea {
+        width: 100%;
+        padding: $spacing-3;
+        border: 1px solid $medium-gray;
+        border-radius: $border-radius-md;
+        font-family: $font-body;
+        font-size: $font-size-base;
+        transition: border-color $transition-normal $transition-ease;
+        
+        &:focus {
+          outline: none;
+          border-color: $primary-gold;
+        }
+        
+        &.error {
+          border-color: $error-red;
+        }
+      }
+      
+      .error-message {
+        display: block;
+        color: $error-red;
+        font-size: $font-size-sm;
+        margin-top: $spacing-1;
+      }
+    }
+    
+    .quote-submit {
+      width: 100%;
+      margin-top: $spacing-4;
+    }
+  }
+}
