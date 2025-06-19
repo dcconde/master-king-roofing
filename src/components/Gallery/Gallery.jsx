@@ -1,82 +1,88 @@
-import { useState } from 'react';
-import './Gallery.scss';
+import { useState } from "react";
+import "./Gallery.scss";
+import Photo1 from "../../assets/pictures/IMG_2826.jpg";
+import Photo2 from "../../assets/pictures/IMG_8347.jpg";
+import Photo3 from "../../assets/pictures/IMG_2829.jpg";
+import Photo4 from "../../assets/pictures/IMG_2661.jpg";
+import Photo5 from "../../assets/pictures/IMG_2606.jpg";
 
 const Gallery = () => {
   // Gallery images - to be replaced with actual project photos
   const galleryImages = [
     {
       id: 1,
-      src: 'https://images.pexels.com/photos/5971221/pexels-photo-5971221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      alt: 'Residential roof installation',
-      category: 'residential'
+      src: Photo1,
+      alt: "Residential roof installation",
+      category: "residential",
     },
     {
       id: 2,
-      src: 'https://images.pexels.com/photos/5971870/pexels-photo-5971870.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      alt: 'Commercial roofing project',
-      category: 'commercial'
+      src: Photo2,
+      alt: "Commercial roofing project",
+      category: "commercial",
     },
     {
       id: 3,
-      src: 'https://images.pexels.com/photos/6474566/pexels-photo-6474566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      alt: 'Shingle roof replacement',
-      category: 'residential'
+      src: Photo3,
+      alt: "Shingle roof replacement",
+      category: "residential",
     },
     {
       id: 4,
-      src: 'https://images.pexels.com/photos/6647111/pexels-photo-6647111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      alt: 'Metal roof installation',
-      category: 'commercial'
+      src: Photo4,
+      alt: "Metal roof installation",
+      category: "commercial",
     },
     {
       id: 5,
-      src: 'https://images.pexels.com/photos/1974596/pexels-photo-1974596.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      alt: 'Roof repair project',
-      category: 'repair'
+      src: Photo5,
+      alt: "Roof repair project",
+      category: "repair",
     },
-    {
-      id: 6,
-      src: 'https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      alt: 'Gutter installation',
-      category: 'gutters'
-    },
-    {
-      id: 7,
-      src: 'https://images.pexels.com/photos/5874117/pexels-photo-5874117.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      alt: 'Roof inspection',
-      category: 'inspection'
-    },
-    {
-      id: 8,
-      src: 'https://images.pexels.com/photos/12339352/pexels-photo-12339352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      alt: 'Emergency roof repair',
-      category: 'repair'
-    }
+    // {
+    //   id: 6,
+    //   src: { Photo6 },
+    //   alt: "Gutter installation",
+    //   category: "gutters",
+    // },
+    // {
+    //   id: 7,
+    //   src: "https://images.pexels.com/photos/5874117/pexels-photo-5874117.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    //   alt: "Roof inspection",
+    //   category: "inspection",
+    // },
+    // {
+    //   id: 8,
+    //   src: "https://images.pexels.com/photos/12339352/pexels-photo-12339352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    //   alt: "Emergency roof repair",
+    //   category: "repair",
+    // },
   ];
 
   const categories = [
-    { id: 'all', name: 'All Projects' },
-    { id: 'residential', name: 'Residential' },
-    { id: 'commercial', name: 'Commercial' },
-    { id: 'repair', name: 'Repairs' },
-    { id: 'gutters', name: 'Gutters' }
+    { id: "all", name: "All Projects" },
+    { id: "residential", name: "Residential" },
+    { id: "commercial", name: "Commercial" },
+    { id: "repair", name: "Repairs" },
+    { id: "gutters", name: "Gutters" },
   ];
 
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeCategory, setActiveCategory] = useState("all");
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const filteredImages = activeCategory === 'all' 
-    ? galleryImages 
-    : galleryImages.filter(image => image.category === activeCategory);
+  const filteredImages =
+    activeCategory === "all"
+      ? galleryImages
+      : galleryImages.filter((image) => image.category === activeCategory);
 
   const openLightbox = (image) => {
     setSelectedImage(image);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
     setSelectedImage(null);
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
   };
 
   return (
@@ -86,23 +92,25 @@ const Gallery = () => {
           <h2>Our Work</h2>
           <p>Take a look at some of our recent roofing projects</p>
         </div>
-        
+
         <div className="gallery-filters">
-          {categories.map(category => (
+          {categories.map((category) => (
             <button
               key={category.id}
-              className={`filter-btn ${activeCategory === category.id ? 'active' : ''}`}
+              className={`filter-btn ${
+                activeCategory === category.id ? "active" : ""
+              }`}
               onClick={() => setActiveCategory(category.id)}
             >
               {category.name}
             </button>
           ))}
         </div>
-        
+
         <div className="gallery-grid">
-          {filteredImages.map(image => (
-            <div 
-              key={image.id} 
+          {filteredImages.map((image) => (
+            <div
+              key={image.id}
               className="gallery-item"
               onClick={() => openLightbox(image)}
             >
@@ -116,19 +124,24 @@ const Gallery = () => {
             </div>
           ))}
         </div>
-        
+
         {filteredImages.length === 0 && (
           <div className="no-images">
             <p>No projects available in this category.</p>
           </div>
         )}
       </div>
-      
+
       {/* Lightbox */}
       {selectedImage && (
         <div className="lightbox" onClick={closeLightbox}>
-          <button className="lightbox-close" onClick={closeLightbox}>×</button>
-          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+          <button className="lightbox-close" onClick={closeLightbox}>
+            ×
+          </button>
+          <div
+            className="lightbox-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img src={selectedImage.src} alt={selectedImage.alt} />
             <div className="lightbox-caption">
               <p>{selectedImage.alt}</p>

@@ -4,9 +4,9 @@ const Services = () => {
   const services = [
     {
       id: 1,
-      title: "Roof Installation",
+      title: "Roof Replacement/Installation",
       description:
-        "Complete roof installation services using high-quality materials for residential and commercial properties.",
+        "Full roof replacement when repairs are no longer sufficient, with various material options to choose from for residential and commercial properties.",
       icon: "icon-installation",
       image:
         "https://images.pexels.com/photos/5969601/pexels-photo-5969601.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -67,13 +67,13 @@ const Services = () => {
         <div className="services-grid">
           {services.map((service) => (
             <div key={service.id} className="service-card">
-              <div className="service-image">
+              {/* <div className="service-image">
                 <img src={service.image} alt={service.title} />
-              </div>
+              </div> */}
               <div className="service-content">
-                <div className="service-icon">
+                {/* <div className="service-icon">
                   <i className={service.icon}></i>
-                </div>
+                </div> */}
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
                 <a href="#quote" className="service-link">
