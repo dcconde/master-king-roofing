@@ -18,8 +18,8 @@ const Gallery = () => {
     {
       id: 2,
       src: Photo2,
-      alt: "Commercial roofing project",
-      category: "commercial",
+      alt: "Company signane on site",
+      category: "signane",
     },
     {
       id: 3,
@@ -30,14 +30,14 @@ const Gallery = () => {
     {
       id: 4,
       src: Photo4,
-      alt: "Metal roof installation",
-      category: "commercial",
+      alt: "Garage roof installation",
+      category: "residential",
     },
     {
       id: 5,
       src: Photo5,
-      alt: "Roof repair project",
-      category: "repair",
+      alt: "Roof replacement",
+      category: "residential",
     },
     // {
     //   id: 6,
@@ -62,9 +62,9 @@ const Gallery = () => {
   const categories = [
     { id: "all", name: "All Projects" },
     { id: "residential", name: "Residential" },
-    { id: "commercial", name: "Commercial" },
-    { id: "repair", name: "Repairs" },
-    { id: "gutters", name: "Gutters" },
+    // { id: "commercial", name: "Commercial" },
+    // { id: "repair", name: "Repairs" },
+    // { id: "gutters", name: "Gutters" },
   ];
 
   const [activeCategory, setActiveCategory] = useState("all");

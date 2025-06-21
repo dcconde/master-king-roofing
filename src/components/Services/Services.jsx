@@ -45,13 +45,15 @@ const Services = () => {
     //   icon: 'icon-gutter',
     //   image: 'https://images.pexels.com/photos/7108246/pexels-photo-7108246.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     // },
-    // {
-    //   id: 6,
-    //   title: 'Emergency Repairs',
-    //   description: '24/7 emergency roof repair services for unexpected damage from storms, fallen trees, and other hazards.',
-    //   icon: 'icon-emergency',
-    //   image: 'https://images.pexels.com/photos/5835362/pexels-photo-5835362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-    // }
+    {
+      id: 6,
+      title: "Emergency Repairs",
+      description:
+        "24/7 emergency roof repair services for unexpected damage from storms, fallen trees, and other hazards.",
+      icon: "icon-emergency",
+      image:
+        "https://images.pexels.com/photos/5835362/pexels-photo-5835362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    },
   ];
 
   return (
