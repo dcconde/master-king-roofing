@@ -1,4 +1,5 @@
 import { Link } from "react-scroll";
+import { Facebook, Instagram, LinkedIn, X } from "@mui/icons-material";
 import logo from "../../assets/logo/logo-gold.svg";
 import "./Footer.scss";
 
@@ -27,17 +28,17 @@ const Footer = () => {
             </p>
 
             <div className="social-links">
-              <a href="#" aria-label="Facebook">
-                <i className="icon-facebook"></i>
+              <a href="https://www.facebook.com/" aria-label="Facebook">
+                <Facebook />
               </a>
-              <a href="#" aria-label="Instagram">
-                <i className="icon-instagram"></i>
+              <a href="https://www.instagram.com/" aria-label="Instagram">
+                <Instagram />
               </a>
-              <a href="#" aria-label="Twitter">
-                <i className="icon-twitter"></i>
+              <a href="https://x.com/" aria-label="Twitter">
+                <X />
               </a>
-              <a href="#" aria-label="LinkedIn">
-                <i className="icon-linkedin"></i>
+              <a href="https://www.linkedin.com/" aria-label="LinkedIn">
+                <LinkedIn />
               </a>
             </div>
           </div>
