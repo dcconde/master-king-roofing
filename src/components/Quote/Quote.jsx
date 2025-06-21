@@ -1,95 +1,93 @@
-import { useState } from 'react';
-import './Quote.scss';
+import { useState } from "react";
+import "./Quote.scss";
 
 const Quote = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    service: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    service: "",
+    message: "",
   });
-  
+
   const [formErrors, setFormErrors] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
-  
+
   const services = [
-    { value: '', label: 'Select a service' },
-    { value: 'roof-installation', label: 'Roof Installation' },
-    { value: 'roof-repair', label: 'Roof Repair' },
-    { value: 'roof-replacement', label: 'Roof Replacement' },
-    { value: 'roof-inspection', label: 'Roof Inspection' },
-    { value: 'gutter-installation', label: 'Gutter Installation' },
-    { value: 'emergency-repair', label: 'Emergency Repair' },
-    { value: 'other', label: 'Other' }
+    { value: "", label: "Select a service" },
+    { value: "roof-installation", label: "Roof Installation" },
+    { value: "roof-repair", label: "Roof Repair" },
+    { value: "roof-replacement", label: "Roof Replacement" },
+    { value: "emergency-repair", label: "Emergency Repair" },
+    { value: "other", label: "Other" },
   ];
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
-    
+
     // Clear error when field is changed
     if (formErrors[name]) {
       setFormErrors({
         ...formErrors,
-        [name]: ''
+        [name]: "",
       });
     }
   };
-  
+
   const validateForm = () => {
     const errors = {};
-    
+
     if (!formData.name.trim()) {
-      errors.name = 'Name is required';
+      errors.name = "Name is required";
     }
-    
+
     if (!formData.email.trim()) {
-      errors.email = 'Email is required';
+      errors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errors.email = 'Please enter a valid email address';
+      errors.email = "Please enter a valid email address";
     }
-    
+
     if (!formData.phone.trim()) {
-      errors.phone = 'Phone number is required';
+      errors.phone = "Phone number is required";
     }
-    
+
     if (!formData.service) {
-      errors.service = 'Please select a service';
+      errors.service = "Please select a service";
     }
-    
+
     return errors;
   };
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     const errors = validateForm();
-    
+
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
       return;
     }
-    
+
     // Form is valid, handle submission
     // In a real application, you would send this data to a server
-    console.log('Form submitted:', formData);
-    
+    console.log("Form submitted:", formData);
+
     // Reset form and show success message
     setFormSubmitted(true);
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      address: '',
-      service: '',
-      message: ''
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+      service: "",
+      message: "",
     });
-    
+
     // Reset success message after some time
     setTimeout(() => {
       setFormSubmitted(false);
@@ -103,45 +101,48 @@ const Quote = () => {
           <div className="quote-image">
             <div className="quote-content">
               <h2>Get Your Free Roofing Quote</h2>
-              <p>Our team of experts is ready to help with your roofing needs. Contact us today for a free, no-obligation estimate.</p>
-              
+              <p>
+                Our team of experts is ready to help with your roofing needs.
+                Contact us today for a free, no-obligation estimate.
+              </p>
+
               <div className="quote-info">
                 <div className="info-item">
                   <i className="icon-phone"></i>
                   <div>
                     <h4>Call Us</h4>
-                    <p>(555) 123-4567</p>
+                    <p>(403) 560-4600</p>
                   </div>
                 </div>
-                
+
                 <div className="info-item">
                   <i className="icon-email"></i>
                   <div>
                     <h4>Email Us</h4>
-                    <p>info@masterkingr<span>oo</span>fing.com</p>
+                    <p>masterkingroofingltd@gmail.com</p>
                   </div>
                 </div>
-                
-                <div className="info-item">
+
+                {/* <div className="info-item">
                   <i className="icon-location"></i>
                   <div>
                     <h4>Visit Us</h4>
                     <p>123 Roofing Way, Building City, ST 12345</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
-          
+
           <div className="quote-form">
             <h3>Request a Free Quote</h3>
-            
+
             {formSubmitted && (
               <div className="form-success">
                 <p>Thank you for your request! We'll contact you shortly.</p>
               </div>
             )}
-            
+
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Full Name *</label>
@@ -151,11 +152,13 @@ const Quote = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={formErrors.name ? 'error' : ''}
+                  className={formErrors.name ? "error" : ""}
                 />
-                {formErrors.name && <span className="error-message">{formErrors.name}</span>}
+                {formErrors.name && (
+                  <span className="error-message">{formErrors.name}</span>
+                )}
               </div>
-              
+
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="email">Email Address *</label>
@@ -165,11 +168,13 @@ const Quote = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={formErrors.email ? 'error' : ''}
+                    className={formErrors.email ? "error" : ""}
                   />
-                  {formErrors.email && <span className="error-message">{formErrors.email}</span>}
+                  {formErrors.email && (
+                    <span className="error-message">{formErrors.email}</span>
+                  )}
                 </div>
-                
+
                 <div className="form-group">
                   <label htmlFor="phone">Phone Number *</label>
                   <input
@@ -178,12 +183,14 @@ const Quote = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className={formErrors.phone ? 'error' : ''}
+                    className={formErrors.phone ? "error" : ""}
                   />
-                  {formErrors.phone && <span className="error-message">{formErrors.phone}</span>}
+                  {formErrors.phone && (
+                    <span className="error-message">{formErrors.phone}</span>
+                  )}
                 </div>
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="address">Property Address</label>
                 <input
@@ -194,7 +201,7 @@ const Quote = () => {
                   onChange={handleChange}
                 />
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="service">Service Needed *</label>
                 <select
@@ -202,7 +209,7 @@ const Quote = () => {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className={formErrors.service ? 'error' : ''}
+                  className={formErrors.service ? "error" : ""}
                 >
                   {services.map((service) => (
                     <option key={service.value} value={service.value}>
@@ -210,9 +217,11 @@ const Quote = () => {
                     </option>
                   ))}
                 </select>
-                {formErrors.service && <span className="error-message">{formErrors.service}</span>}
+                {formErrors.service && (
+                  <span className="error-message">{formErrors.service}</span>
+                )}
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="message">Message</label>
                 <textarea
@@ -223,7 +232,7 @@ const Quote = () => {
                   onChange={handleChange}
                 ></textarea>
               </div>
-              
+
               <button type="submit" className="btn btn-primary quote-submit">
                 Submit Request
               </button>

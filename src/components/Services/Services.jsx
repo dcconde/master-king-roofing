@@ -20,15 +20,15 @@ const Services = () => {
       image:
         "https://images.pexels.com/photos/3584738/pexels-photo-3584738.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
-    {
-      id: 3,
-      title: "Roof Replacement",
-      description:
-        "Full roof replacement when repairs are no longer sufficient, with various material options to choose from.",
-      icon: "icon-replacement",
-      image:
-        "https://images.pexels.com/photos/5589309/pexels-photo-5589309.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    },
+    // {
+    //   id: 3,
+    //   title: "Roof Replacement",
+    //   description:
+    //     "Full roof replacement when repairs are no longer sufficient, with various material options to choose from.",
+    //   icon: "icon-replacement",
+    //   image:
+    //     "https://images.pexels.com/photos/5589309/pexels-photo-5589309.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    // },
     // {
     //   id: 4,
     //   title: "Roof Inspection",

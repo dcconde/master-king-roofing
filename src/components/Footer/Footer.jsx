@@ -111,12 +111,6 @@ const Footer = () => {
                   <a href="#services">Roof Replacement</a>
                 </li>
                 <li>
-                  <a href="#services">Roof Inspection</a>
-                </li>
-                <li>
-                  <a href="#services">Gutter Installation</a>
-                </li>
-                <li>
                   <a href="#services">Emergency Repairs</a>
                 </li>
               </ul>
@@ -139,11 +133,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <i className="icon-time"></i>
-                  <span>
-                    Mon-Fri: 8am-6pm
-                    <br />
-                    Sat: 9am-2pm
-                  </span>
+                  <span>Mon-Fri: 8am-6pm</span>
                 </li>
               </ul>
             </div>
