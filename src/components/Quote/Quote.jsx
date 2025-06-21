@@ -79,7 +79,7 @@ const Quote = () => {
         "service_quotes", // your Service ID
         "template_6x53tl7", // your Template ID
         formData, // your actual form data
-        "YkzJeeVeyyytWmUQJT" // your EmailJS Public Key
+        "JsgAemdElKfssoZLv" // your EmailJS Public Key
       )
       .then(() => {
         setFormSubmitted(true);
