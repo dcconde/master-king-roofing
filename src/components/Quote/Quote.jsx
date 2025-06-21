@@ -68,31 +68,38 @@ const Quote = () => {
     e.preventDefault();
 
     const errors = validateForm();
-
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
       return;
     }
 
-    // Form is valid, handle submission
-    // In a real application, you would send this data to a server
-    console.log("Form submitted:", formData);
+    // Send form data to EmailJS
+    emailjs
+      .send(
+        "service_quotes", // your Service ID
+        "template_6x53tl7", // your Template ID
+        formData, // your actual form data
+        "YkzJeeVeyyytWmUQJT" // your EmailJS Public Key
+      )
+      .then(() => {
+        setFormSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          address: "",
+          service: "",
+          message: "",
+        });
 
-    // Reset form and show success message
-    setFormSubmitted(true);
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      address: "",
-      service: "",
-      message: "",
-    });
-
-    // Reset success message after some time
-    setTimeout(() => {
-      setFormSubmitted(false);
-    }, 5000);
+        setTimeout(() => {
+          setFormSubmitted(false);
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("Something went wrong. Please try again.");
+      });
   };
 
   return (
